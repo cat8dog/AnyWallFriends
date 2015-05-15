@@ -1,12 +1,5 @@
-//
-//  AppDelegate.m
-//  AnyWalls
-//
-//  Created by Catherine Reyto on 2015-05-14.
-//  Copyright (c) 2015 Catherine Reyto. All rights reserved.
-//
-
 #import "AppDelegate.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +10,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"s3HHFMlgfn8N8sCREJZjEgw7GV1wpwHzLngksHPK"
+                  clientKey:@"drb9pLvpniNKzOkUxKxvm7HjTGm52dZSKGqixYPU"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    // storing the object
+    PFUser *user = [PFUser objectWithClassName:@"user"];
+    [user setObject:@"data value" forKey:@"data column"];
+    [user save];
+    
     return YES;
 }
 
